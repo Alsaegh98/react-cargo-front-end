@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import * as cargoService from '../../services/cargoService';
+import { useParams } from 'react-router-dom'
 
 const CargoForm = (props) => {
   const [formData, setFormData] = useState({
@@ -9,18 +11,37 @@ const CargoForm = (props) => {
     notes: '',
   });
 
+const { cargoId } = useParams();
+
+
+
+useEffect(() => {
+    const fetchCargo = async () => {
+      const cargoData = await cargoService.show(cargoId);
+      setFormData(cargoData);
+    };
+    if (cargoId) fetchCargo();
+  }, [cargoId]);
+
+
+
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
   };
 
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-    props.handleAddCargo(formData);
-  };
+  const handleSubmit = event => {
+    event.preventDefault()
+    if (cargoId) {
+        props.handleUpdateCargo(cargoId, formData)
+    } else {
+        props.handleAddCargo(formData)
+    }
+  }
 
   return (
     <main>
       <form onSubmit={handleSubmit}>
+      <h1>{cargoId ? 'Edit Cargo' : 'New Cargo'}</h1>
         <label htmlFor="email-input">Email:
 
         </label>

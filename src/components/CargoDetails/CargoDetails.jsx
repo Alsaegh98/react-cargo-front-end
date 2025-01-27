@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom'
 import * as cargoService from '../../services/cargoService'
 import { AuthedUserContext } from '../../App';
 import { useState, useEffect, useContext } from 'react';
@@ -41,6 +41,7 @@ const CargoDetails = (props) => {
 
                 {cargo.author._id === user._id && (
                     <>
+                    <Link to={`/cargos/${cargoId}/edit`}>Edit</Link>
                         <button onClick={() => props.handleDeleteCargo(cargoId)}>Delete Inquiry</button>
                     </>
                 )}

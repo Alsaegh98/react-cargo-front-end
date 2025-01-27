@@ -44,6 +44,15 @@ const handleDeleteCargo = async (cargoId) => {
   navigate('/cargos');
 };
 
+
+const handleUpdateCargo = async (cargoId, cargoFormData) => {
+  const updatedCargo = await cargoService.update(cargoId, cargoFormData);
+
+  setCargos(cargos.map((cargo) => (cargoId === cargo._id ? updatedCargo : cargo)));
+
+  navigate(`/cargos/${cargoId}`);
+};
+
   return (
     <>
       <AuthedUserContext.Provider value={user}>
@@ -56,7 +65,7 @@ const handleDeleteCargo = async (cargoId) => {
       <Route path="/cargos" element={<CargoList cargos={cargos}/>} />
       <Route path="/cargos/new" element={<CargoForm handleAddCargo={handleAddCargo} />} />
       <Route path="/cargos/:cargoId" element={<CargoDetails handleDeleteCargo={handleDeleteCargo} />} />
-      
+      <Route path="/cargos/:cargoId/edit" element={<CargoForm handleUpdateCargo={handleUpdateCargo} />} />
     </>
   ) : (
     // Public Route:
