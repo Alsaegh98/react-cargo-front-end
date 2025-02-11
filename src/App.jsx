@@ -10,6 +10,7 @@ import CargoList from './components/CargoList/CargoList';
 import CargoDetails from './components/CargoDetails/CargoDetails';
 import * as cargoService from './services/cargoService';
 import CargoForm from './components/CargoForm/CargoForm';
+import './styles.css';
 
 export const AuthedUserContext = createContext(null);
 
