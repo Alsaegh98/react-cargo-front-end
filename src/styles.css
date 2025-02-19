@@ -45,25 +45,39 @@ body {
     font-size: 16px;
   }
   
-  button {
+/* Default Button Styles */
+button {
     margin-top: 15px;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #007bff;  /* Default blue */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    transition: background 0.3s ease;
   }
   
   button:hover {
-    background-color: #0056b3;
+    background-color: #255d98;
+  }
+
+  /* .edit-btn {
+    background-color: #0fe842;
   }
   
-  button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+  .edit-btn:hover {
+    background-color: #218838;
   }
+  
+  .delete-btn {
+    background-color: #dc3545;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c82333;
+  } */
+  
   
   nav {
     background: #333;
