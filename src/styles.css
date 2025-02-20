@@ -26,7 +26,6 @@ body {
     color: #666;
   }
   
-  /* Form Styles */
   form {
     display: flex;
     flex-direction: column;
@@ -45,11 +44,10 @@ body {
     font-size: 16px;
   }
   
-/* Default Button Styles */
 button {
     margin-top: 15px;
     padding: 10px;
-    background-color: #007bff;  /* Default blue */
+    background-color: #007bff;  
     color: white;
     border: none;
     border-radius: 5px;
@@ -61,49 +59,42 @@ button {
   button:hover {
     background-color: #255d98;
   }
-
-  /* .edit-btn {
-    background-color: #0fe842;
-  }
-  
-  .edit-btn:hover {
-    background-color: #218838;
-  }
-  
-  .delete-btn {
-    background-color: #dc3545;
-  }
-  
-  .delete-btn:hover {
-    background-color: #c82333;
-  } */
-  
   
   nav {
     background: #333;
-    padding: none;
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    z-index: 1000;
   }
   
   nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
     display: flex;
-    justify-content: center;
+    justify-content: center; 
   }
   
   nav ul li {
-    margin: 0 0 0 248px;
+    margin: 0 20px;
   }
   
   nav ul li a {
     color: rgb(255, 255, 255);
     text-decoration: none;
     font-size: 18px;
-    justify-content: center;
   }
   
   nav ul li a:hover {
     text-decoration: underline;
   }
+
+  body {
+    padding-top: 60px; 
+  }
+  
   
   
